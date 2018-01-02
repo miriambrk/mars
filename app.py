@@ -11,6 +11,8 @@ if not MONGO_URL:
     MONGO_URL = "mongodb://localhost:27017/";
 app.config['MONGO_URI'] = MONGO_URL
 
+print('MONGO_URL: ', MONGO_URL)
+
 try:
     mongo = PyMongo(app)
 except:
@@ -18,6 +20,7 @@ except:
 
 @app.route("/")
 def index():
+    print("getting mars data from mongodb")
     mars = mongo.db.mars.find_one()
 
     return render_template("index.html", mars=mars)
