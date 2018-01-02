@@ -1,9 +1,20 @@
 from flask import Flask, render_template, jsonify, redirect
 from flask_pymongo import PyMongo
-
+import os
 import scrape_mars
 app = Flask(__name__)
-mongo = PyMongo(app)
+
+
+#check if a MONGO_URL environment variable is set. If not, then use development environment and set it to the localhost
+MONGO_URL = os.environ.get('MONGO_URL')
+if not MONGO_URL:
+    MONGO_URL = "mongodb://localhost:27017/";
+app.config['MONGO_URI'] = MONGO_URL
+
+try:
+    mongo = PyMongo(app)
+except:
+    print("cannot start mongo")
 
 @app.route("/")
 def index():
