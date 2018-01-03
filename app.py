@@ -18,10 +18,21 @@ try:
 except:
     print("cannot start mongo")
 
+
+conn = 'mongodb://localhost:27017'
+client = pymongo.MongoClient(conn)
+db = client.mars
+collection = db.mars
+
+print("after setting collection")
+
+
+
 @app.route("/")
 def index():
     print("getting mars data from mongodb")
-    mars = mongo.db.mars.find_one()
+    #mars = mongo.db.mars.find_one()
+    mars = mongo.collection.find_one()
 
     return render_template("index.html", mars=mars)
 
