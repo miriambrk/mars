@@ -9,9 +9,7 @@ import os
 #trying to get Heroku to recognize chromedriver
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
 
-print("chrome_bin: ", chrome_bin)
 #opts = ChromeOptions()
 #opts.binary_location = chrome_bin
 #driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
@@ -19,6 +17,9 @@ print("chrome_bin: ", chrome_bin)
 
 
 def scrape():
+
+    chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
+    print("chrome_bin: ", chrome_bin)
 
     #store all the scraped data in a dictionary
     mars_dictionary = {}
