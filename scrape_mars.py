@@ -4,6 +4,16 @@ import pandas as pd
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import requests
+import os
+
+#trying to get Heroku to recognize chromedriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
+opts = ChromeOptions()
+opts.binary_location = chrome_bin
+self.selenium = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
+
+
 
 
 
