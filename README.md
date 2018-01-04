@@ -9,7 +9,8 @@ Files:
 6) requirements.txt
 
 
-This is set up to use a mLab mongodb and run in Heroku as http://mars-mission.herokuapp.com/. Unfortunately, I don't know how 
-to get it to find chromedriver. I finally included chromedriver in my repo, but that didn't help either. I have tried with and without
+This is set up to use a mLab mongodb. The hope was to successfully deploy it in Heroku as http://mars-mission.herokuapp.com/. Unfortunately, there are issues in Heroku with finding the chromedriver executable. I tried various suggestions that I found 
+online, but was not successful. I even included chromedriver in my repo, but that didn't help either. I have tried with and without
 special Heroku Buildpacks for chromedriver and Chrome. 
 
+This version does not work in Heroku. It is just a Flask app on its own.
