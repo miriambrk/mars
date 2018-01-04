@@ -7,6 +7,7 @@ import requests
 import os
 
 #trying to get Heroku to recognize chromedriver
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
 opts = ChromeOptions()
