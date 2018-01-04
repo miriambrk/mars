@@ -1,18 +1,23 @@
 from flask import Flask, render_template, jsonify, redirect
-#from flask_pymongo import PyMongo
-from pymongo import MongoClient
+from flask_pymongo import PyMongo
+#from pymongo import MongoClient
 import os
 import scrape_mars
 app = Flask(__name__)
 
+#try this:
+app.config('MONGO_DBNAME') = 'mars'
+app.config('MONGO-URI') = "mongodb://mars:marspw@ds137957.mlab.com:37957/mars"
+mongo = PyMongo(app)
 
-port = process.env.PORT || 5000
+##port = process.env.PORT || 5000
 
 #created a mongo database on mlab called mars. Use this for the Heroku app
-client = MongoClient("mongodb://mars:marspw@ds137957.mlab.com:37957/mars")
-db =  client.mars
-mars = db.mars
+#client = MongoClient("mongodb://mars:marspw@ds137957.mlab.com:37957/mars")
+#db =  client.mars
+#mars = db.mars
 
+mars = mongo.db.mars
 
 @app.route("/")
 def index():
