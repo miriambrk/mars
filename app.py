@@ -34,8 +34,8 @@ def scrape():
     )
 
     print("after scrape; ready to redirect")
-    #####return redirect("https://mars-mission.herokuapp.com", code=302)
-    return redirect("http://localhost:5000/", code=302)
+    return redirect("https://mars-mission.herokuapp.com", code=302)
+    #return redirect("http://localhost:5000/", code=302)
 
 if __name__ == "__main__":
     app.run(debug=True)
