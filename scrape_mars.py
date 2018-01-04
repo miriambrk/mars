@@ -10,23 +10,15 @@ import os
 #from selenium import webdriver
 #from selenium.webdriver.chrome.options import Options as ChromeOptions
 
-
 def scrape():
 
     #chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-    #print("MIRIAM chrome_bin: ", chrome_bin)
-
     #opts = ChromeOptions()
     #opts.binary_location = chrome_bin
     #driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
 
-    #cd = chrome_bin + "/chromedriver"
-
-
     #initialize Browser
-    #executable_path = {'executable_path': cd}
     #executable_path = {'executable_path': 'chromedriver'}
-
     #print("MIRIAM after setting executable path")
 
     #browser = Browser('chrome', **executable_path, headless = True)
@@ -35,9 +27,6 @@ def scrape():
 
     executable_path = {'executable_path': 'chromedriver'}
     browser = Browser('chrome', **executable_path, headless = False)
-
-
-
 
 
     print("MIRIAM after setting browser")
@@ -50,9 +39,8 @@ def scrape():
     # URL of NASA Mars News website
     url = 'https://mars.nasa.gov/news/'
 
-    print("MIRIAM after setting url for news")
     browser.visit(url)
-    print("MIRIAM after visiting url")
+
     response = browser.html
     soup = bs(response, "lxml")
 
@@ -67,8 +55,8 @@ def scrape():
     text_tot = container.find('div', class_="rollover_description_inner")
     news_p = text_tot.text
 
-    print("MIRIAM title: ", news_title)
-    print("MIRIAM paragraph: ", news_p)
+    print("title: ", news_title)
+    print("paragraph: ", news_p)
 
     #store in mars_dictionary
     mars_dictionary["news_title"] = news_title
@@ -76,10 +64,6 @@ def scrape():
 
 
     # PART II - JPL Mars Space Images - Featured Image
-    #executable_path = {'executable_path': chrome_bin}
-    #executable_path = {'executable_path': 'chromedriver'}
-    #browser = Browser('chrome', **executable_path, headless=False)
-
     jpl_url = 'https://www.jpl.nasa.gov'
 
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
