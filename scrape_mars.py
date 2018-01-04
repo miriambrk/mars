@@ -14,11 +14,11 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 def scrape():
 
     chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-    print("chrome_bin: ", chrome_bin)
+    print("MIRIAM chrome_bin: ", chrome_bin)
 
-    opts = ChromeOptions()
-    opts.binary_location = chrome_bin
-    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
+    # opts = ChromeOptions()
+    # opts.binary_location = chrome_bin
+    # driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
 
 
 
@@ -38,7 +38,10 @@ def scrape():
 
     # URL of NASA Mars News website
     url = 'https://mars.nasa.gov/news/'
+
+    print("MIRIAM after setting url for news")
     browser.visit(url)
+    print("MIRIAM after visiting url")
     response = browser.html
     soup = bs(response, "lxml")
 
@@ -53,8 +56,8 @@ def scrape():
     text_tot = container.find('div', class_="rollover_description_inner")
     news_p = text_tot.text
 
-    print("title: ", news_title)
-    print("paragraph: ", news_p)
+    print("MIRIAM title: ", news_title)
+    print("MIRIAM paragraph: ", news_p)
 
     #store in mars_dictionary
     mars_dictionary["news_title"] = news_title
