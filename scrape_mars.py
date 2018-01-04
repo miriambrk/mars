@@ -7,8 +7,8 @@ import requests
 import os
 
 #trying to get Heroku to recognize chromedriver
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
+#from selenium import webdriver
+#from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 #opts = ChromeOptions()
 #opts.binary_location = chrome_bin
@@ -21,11 +21,14 @@ def scrape():
     #chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
     #print("chrome_bin: ", chrome_bin)
 
+    #initialize Browser
+    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    browser = Browser('chrome', **executable_path, headless = True)
+    #browser = Browser('chrome', headless=False)
+
     #store all the scraped data in a dictionary
     mars_dictionary = {}
 
-    #initialize Browser
-    browser = Browser('chrome', headless=False)
 
     # PART 1 - NASA Mars News
 
@@ -165,8 +168,7 @@ def scrape():
     # Create BeautifulSoup object; parse with 'html.parser'
     soup = bs(response.text, 'html.parser')
 
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
+
     browser.visit(url)
 
     # use splinter to get the URLs of the hemisphere pages
