@@ -18,8 +18,8 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 def scrape():
 
-    chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-    print("chrome_bin: ", chrome_bin)
+    #chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
+    #print("chrome_bin: ", chrome_bin)
 
     #store all the scraped data in a dictionary
     mars_dictionary = {}
@@ -55,9 +55,9 @@ def scrape():
 
 
     # PART II - JPL Mars Space Images - Featured Image
-    executable_path = {'executable_path': chrome_bin}
+    #executable_path = {'executable_path': chrome_bin}
     #executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
+    #browser = Browser('chrome', **executable_path, headless=False)
 
     jpl_url = 'https://www.jpl.nasa.gov'
 
