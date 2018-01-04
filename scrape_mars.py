@@ -7,13 +7,13 @@ import requests
 import os
 
 #trying to get Heroku to recognize chromedriver
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-opts = ChromeOptions()
-opts.binary_location = chrome_bin
-driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
-webdriver.Chrome(DRIVER)
+# from selenium import webdriver
+# from selenium.webdriver.chrome.options import Options as ChromeOptions
+# chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
+# opts = ChromeOptions()
+# opts.binary_location = chrome_bin
+# driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
+# webdriver.Chrome(DRIVER)
 
 
 
@@ -54,7 +54,8 @@ def scrape():
 
 
     # PART II - JPL Mars Space Images - Featured Image
-    executable_path = {'executable_path': 'chromedriver'}
+    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    #executable_path = {'executable_path': 'chromedriver'}
     browser = Browser('chrome', **executable_path, headless=False)
 
     jpl_url = 'https://www.jpl.nasa.gov'
