@@ -6,6 +6,8 @@ import scrape_mars
 app = Flask(__name__)
 
 
+port = process.env.PORT || 5000
+
 #created a mongo database on mlab called mars. Use this for the Heroku app
 client = MongoClient("mongodb://mars:marspw@ds137957.mlab.com:37957/mars")
 db =  client.mars
@@ -28,9 +30,10 @@ def scrape():
         mars_data,
         upsert=True
     )
-    #######return redirect("http://localhost:5000/", code=302)
+
     print("after scrape; ready to redirect")
-    return redirect("https://mars-mission.herokuapp.com", code=302)
+    #####return redirect("https://mars-mission.herokuapp.com", code=302)
+    return redirect("http://localhost:5000/", code=302)
 
 if __name__ == "__main__":
     app.run(debug=True)
