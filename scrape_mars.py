@@ -7,30 +7,39 @@ import requests
 import os
 
 #trying to get Heroku to recognize chromedriver
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
+#from selenium import webdriver
+#from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 
 def scrape():
 
-    chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-    print("MIRIAM chrome_bin: ", chrome_bin)
+    #chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
+    #print("MIRIAM chrome_bin: ", chrome_bin)
 
-    opts = ChromeOptions()
-    opts.binary_location = chrome_bin
+    #opts = ChromeOptions()
+    #opts.binary_location = chrome_bin
     #driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
 
-    cd = chrome_bin + "/chromedriver"
+    #cd = chrome_bin + "/chromedriver"
 
 
     #initialize Browser
-    executable_path = {'executable_path': cd}
+    #executable_path = {'executable_path': cd}
     #executable_path = {'executable_path': 'chromedriver'}
 
-    print("MIRIAM after setting executable path")
+    #print("MIRIAM after setting executable path")
 
-    browser = Browser('chrome', **executable_path, headless = False)
+    #browser = Browser('chrome', **executable_path, headless = True)
     #browser = Browser('chrome', headless=False)
+
+
+    executable_path = {'executable_path': 'chromedriver'}
+    browser = Browser('chrome', **executable_path, headless = False)
+
+
+
+
+
     print("MIRIAM after setting browser")
     #store all the scraped data in a dictionary
     mars_dictionary = {}
