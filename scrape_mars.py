@@ -7,23 +7,27 @@ import requests
 import os
 
 #trying to get Heroku to recognize chromedriver
-#from selenium import webdriver
-#from selenium.webdriver.chrome.options import Options as ChromeOptions
-
-#opts = ChromeOptions()
-#opts.binary_location = chrome_bin
-#driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
-#webdriver.Chrome(DRIVER)
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 
 def scrape():
 
-    #chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-    #print("chrome_bin: ", chrome_bin)
+    chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
+    print("chrome_bin: ", chrome_bin)
+
+    opts = ChromeOptions()
+    opts.binary_location = chrome_bin
+    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
+
+
+
 
     #initialize Browser
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless = True)
+    executable_path = {'executable_path': chrome_bin}
+    #executable_path = {'executable_path': 'chromedriver'}
+
+    browser = Browser('chrome', **executable_path, headless = False)
     #browser = Browser('chrome', headless=False)
 
     #store all the scraped data in a dictionary
