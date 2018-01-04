@@ -16,20 +16,22 @@ def scrape():
     chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
     print("MIRIAM chrome_bin: ", chrome_bin)
 
-    # opts = ChromeOptions()
-    # opts.binary_location = chrome_bin
-    # driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
+    opts = ChromeOptions()
+    opts.binary_location = chrome_bin
+    #driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
 
-
+    cd = chrome_bin + "/chromedriver"
 
 
     #initialize Browser
-    executable_path = {'executable_path': chrome_bin}
+    executable_path = {'executable_path': cd}
     #executable_path = {'executable_path': 'chromedriver'}
+
+    print("MIRIAM after setting executable path")
 
     browser = Browser('chrome', **executable_path, headless = False)
     #browser = Browser('chrome', headless=False)
-
+    print("MIRIAM after setting browser")
     #store all the scraped data in a dictionary
     mars_dictionary = {}
 
