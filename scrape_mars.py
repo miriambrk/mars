@@ -182,7 +182,7 @@ def scrape():
     soup = bs(html, 'html.parser')
 
     # results are returned as an iterable list
-    hemispheres = soup.find_all('a', class_="item")
+    hemispheres = soup.find_all('a', class_="itemLink")
 
     # Loop through returned results
 
